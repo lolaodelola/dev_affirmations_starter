@@ -24,9 +24,8 @@ module DevAffirmations
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.autoload_paths << Rails.root.join('lib')
-    config.active_job.queue_adapter = :delayed_job
-    config.hosts << 'd9a096eafd2a.ngrok.io'
-    config.hosts << '127.0.0.1'
+    config.active_job.queue_adapter = :delayed_job # Adapter for our jobs
+    config.hosts << '127.0.0.1' # Allow us to recieve requests from local host
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
