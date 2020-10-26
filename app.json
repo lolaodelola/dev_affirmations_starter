@@ -1,0 +1,42 @@
+{
+  "name": "",
+  "description": "",
+  "repository": "",
+
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "image": "heroku/ruby",
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "environments": {
+    "test": {
+      "addons":[
+        "heroku-postgresql"
+      ],
+      "buildpacks": [
+        { "url": "heroku/chromedriver" },
+        { "url": "heroku/google-chrome" },
+        { "url":  "heroku/ruby" }
+      ],
+      "scripts": {
+        "test": "bundle exec rspec spec"
+      },
+      "env": {
+        "DATABASE_CLEANER_ALLOW_PRODUCTION": true,
+        "DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL": true
+      }
+    }
+  }
+}
